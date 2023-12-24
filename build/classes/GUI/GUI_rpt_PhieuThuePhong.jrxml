@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b86f3d51-1f62-44f1-85a9-eba97987b75c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="MaHoaDon" class="java.lang.String">
+		<defaultValueExpression><![CDATA["MaHoaDon"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="MaNhapKho" class="java.lang.String">
+		<defaultValueExpression><![CDATA["MaNhapKho"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="MaPhieuDichVu" class="java.lang.String">
+		<defaultValueExpression><![CDATA["MaPhieuDichVu"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="MaPhieuThue" class="java.lang.String">
+		<defaultValueExpression><![CDATA["MaPhieuThue"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     ThuePhong."MaPhong" AS ThuePhong_MaPhong,
+     ThuePhong."MaPhieuThue" AS ThuePhong_MaPhieuThue,
+     ThuePhong."MaNhanVien" AS ThuePhong_MaNhanVien,
+     ThuePhong."NgayTao" AS ThuePhong_NgayTao,
+     ThuePhong."NgayDen" AS ThuePhong_NgayDen,
+     ThuePhong."NgayDi" AS ThuePhong_NgayDi,
+     ThuePhong."CMND" AS ThuePhong_CMND,
+     ThuePhong."TenKhachHang" AS ThuePhong_TenKhachHang,
+     ThuePhong."SoLuongKhach" AS ThuePhong_SoLuongKhach,
+     ThuePhong."GhiChu" AS ThuePhong_GhiChu,
+     ThuePhong."TienCoc" AS ThuePhong_TienCoc,
+     ThuePhong."GiamGia" AS ThuePhong_GiamGia,
+     ThuePhong."HinhAnh" AS ThuePhong_HinhAnh,
+     ThuePhong."MaPhuongThuc" AS ThuePhong_MaPhuongThuc,
+     ThuePhong."TrangThaiThanhToan" AS ThuePhong_TrangThaiThanhToan,
+     Phong."MaPhong" AS Phong_MaPhong,
+     Phong."TenPhong" AS Phong_TenPhong,
+     Phong."MaTang" AS Phong_MaTang,
+     Phong."MaLoaiPhong" AS Phong_MaLoaiPhong,
+     Phong."MaTrangThaiPhong" AS Phong_MaTrangThaiPhong
+FROM
+     "dbo"."Phong" Phong INNER JOIN "dbo"."ThuePhong" ThuePhong ON Phong."MaPhong" = ThuePhong."MaPhong"
+WHERE
+     ThuePhong."MaPhieuThue" = $P{MaPhieuThue}]]>
+	</queryString>
+	<field name="ThuePhong_MaPhong" class="java.lang.String"/>
+	<field name="ThuePhong_MaPhieuThue" class="java.lang.String"/>
+	<field name="ThuePhong_MaNhanVien" class="java.lang.String"/>
+	<field name="ThuePhong_NgayTao" class="java.sql.Timestamp"/>
+	<field name="ThuePhong_NgayDen" class="java.sql.Timestamp"/>
+	<field name="ThuePhong_NgayDi" class="java.sql.Timestamp"/>
+	<field name="ThuePhong_CMND" class="java.lang.String"/>
+	<field name="ThuePhong_TenKhachHang" class="java.lang.String"/>
+	<field name="ThuePhong_SoLuongKhach" class="java.lang.Integer"/>
+	<field name="ThuePhong_GhiChu" class="java.lang.String"/>
+	<field name="ThuePhong_TienCoc" class="java.math.BigDecimal"/>
+	<field name="ThuePhong_GiamGia" class="java.math.BigDecimal"/>
+	<field name="ThuePhong_HinhAnh" class="java.lang.Object"/>
+	<field name="ThuePhong_MaPhuongThuc" class="java.lang.String"/>
+	<field name="ThuePhong_TrangThaiThanhToan" class="java.lang.Boolean"/>
+	<field name="Phong_MaPhong" class="java.lang.String"/>
+	<field name="Phong_TenPhong" class="java.lang.String"/>
+	<field name="Phong_MaTang" class="java.lang.String"/>
+	<field name="Phong_MaLoaiPhong" class="java.lang.String"/>
+	<field name="Phong_MaTrangThaiPhong" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="180" splitType="Stretch">
+			<staticText>
+				<reportElement x="177" y="90" width="200" height="40" forecolor="#3E495F" uuid="e2c44755-00f1-4584-a627-f1528e2e1672"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PHIẾU THUÊ PHÒNG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="10" width="150" height="20" forecolor="#3E495F" uuid="b0787880-7dfc-4c53-aff8-fd6f38b306c3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Buôn Ma Thuột, Đắk Lắk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="50" width="80" height="20" forecolor="#3E495F" uuid="9e2e6c6e-8834-41a9-9c4a-58cb151ed846"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[0966454404]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="230" y="140" width="60" height="20" forecolor="#999999" uuid="193604fa-d61a-4921-8749-c231b7a55c37"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Phòng Số]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="290" y="140" width="30" height="20" forecolor="#3E495F" uuid="2ea6fc4d-ae0f-410c-bc3f-7555609ba4bb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="14" isBold="true" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Phong_TenPhong}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="25" y="10" width="20" height="20" uuid="5e1f7a6c-ed78-4d8c-9982-674717a74805"/>
+				<imageExpression><![CDATA["D:\\adada\\test05\\Hotel_Management\\src\\IMG\\location.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="25" y="50" width="20" height="20" uuid="11204dac-ff34-466f-be8f-ebb1d10ac854"/>
+				<imageExpression><![CDATA["D:\\adada\\test05\\Hotel_Management\\src\\IMG\\viber.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="100" splitType="Stretch">
+			<staticText>
+				<reportElement x="319" y="17" width="70" height="20" forecolor="#999999" uuid="c5d122c1-468a-4e1b-b0e7-6fd3c7e6e44c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ngày Tạo]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="389" y="17" width="130" height="20" forecolor="#3E495F" uuid="0984d6ba-1ae9-48e5-b0c1-90c704a223d0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="14" isBold="true" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ThuePhong_NgayTao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="35" y="57" width="70" height="20" forecolor="#999999" uuid="7d582af2-27f7-4637-9b73-b74543e95691"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ngày Đến]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="105" y="57" width="130" height="20" forecolor="#3E495F" uuid="79d3d4d1-6e1d-4354-822b-803eb1f5f539"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ThuePhong_NgayDen}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="319" y="57" width="70" height="20" forecolor="#999999" uuid="0103dd59-a4b1-4553-a207-a9422b7f9b09"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ngày Đi]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="389" y="57" width="130" height="20" forecolor="#3E495F" uuid="084d2f60-c2b5-4fbb-94cf-0ba0c970923d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ThuePhong_NgayDi}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="35" y="17" width="70" height="20" forecolor="#999999" uuid="cae96814-089e-4633-8a8b-ce721aef6a74"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mã Phiếu]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="105" y="17" width="130" height="20" forecolor="#3E495F" uuid="ca3f253f-9be4-4dae-a16f-a898cad39b1d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ThuePhong_MaPhieuThue}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="3" y="10" width="100" height="20" forecolor="#999999" uuid="cea36b9d-2242-4417-8a99-eec920a65775"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mã Hàng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="103" y="10" width="149" height="20" forecolor="#999999" uuid="bc50e54a-8b3d-43fc-962a-39a5db40052d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tên Hàng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="252" y="10" width="100" height="20" forecolor="#999999" uuid="b8cb23f3-8601-47bf-868b-816e2f31da9b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Số Lượng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="352" y="10" width="100" height="20" forecolor="#999999" uuid="95a5aae4-588a-4168-b12b-c2bfd56b1443"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Đơn Giá]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="452" y="10" width="100" height="20" forecolor="#999999" uuid="bd84a511-e30f-4b34-bdd5-e21663a7abfe"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tổng Tiền]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="4c3669c8-436b-48b8-9aa1-1ebd5a0d191f"/>
+			</line>
+			<line>
+				<reportElement x="0" y="39" width="555" height="1" uuid="0a19fbbe-9729-4ec1-a363-05b61822c90e"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="10" width="101" height="20" forecolor="#3E495F" uuid="a9d62819-613a-42b7-9ac5-f8add2c91806"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="14" isBold="true"/>
+				</textElement>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="103" y="10" width="149" height="20" forecolor="#3E495F" uuid="cc4bfd24-421f-41ee-865a-a007b796d9d9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="14" isBold="true"/>
+				</textElement>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="252" y="10" width="100" height="20" forecolor="#3E495F" uuid="92fde438-d920-4e0a-8ba2-f251a731668e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="14" isBold="true"/>
+				</textElement>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="352" y="10" width="100" height="20" forecolor="#3E495F" uuid="82c9a68f-f606-4832-b62f-b3bae018c007"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="14" isBold="true"/>
+				</textElement>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="452" y="10" width="100" height="20" forecolor="#3E495F" uuid="eac8e684-cd76-4a04-87d7-42a5436d53fa"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="14" isBold="true"/>
+				</textElement>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="160" splitType="Stretch">
+			<line>
+				<reportElement x="127" y="20" width="300" height="1" uuid="439842fb-e9cb-4386-bec7-48d5a2bf3eaf"/>
+			</line>
+			<staticText>
+				<reportElement x="349" y="40" width="70" height="20" forecolor="#999999" uuid="d7cc7ce3-a532-4d53-9a29-efa1f1676995"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tiền Cọc]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="252" y="90" width="50" height="20" forecolor="#999999" uuid="edc210b5-0e08-45a4-be24-07b08ae3885e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Game2K]]></text>
+			</staticText>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="419" y="40" width="100" height="20" forecolor="#3E495F" uuid="e6495024-0a5b-4c0c-9c2d-65a7847d841e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="14" isBold="true" isItalic="false" isUnderline="true" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ThuePhong_TienCoc}.intValue() + "K"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="177" y="120" width="200" height="20" forecolor="#999999" uuid="6ba2bac4-183b-4c51-b58c-bc74735ec4c8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cảm Ơn Quý Khách & Hẹn Gặp Lại !!!]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
